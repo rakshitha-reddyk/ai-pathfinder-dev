@@ -2,95 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* CodeMentor AI - Advanced Design System
+All colors, gradients, fonts, animations, and design tokens are defined here.
+All colors MUST be HSL for consistency.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Core Brand Colors */
+    --background: 220 25% 6%;
+    --foreground: 220 15% 95%;
+    --surface: 220 20% 8%;
+    --surface-elevated: 220 18% 12%;
+    
+    /* Brand Palette */
+    --brand-primary: 210 100% 56%;
+    --brand-secondary: 142 76% 36%;
+    --brand-accent: 25 95% 53%;
+    --brand-success: 142 76% 36%;
+    --brand-warning: 38 92% 50%;
+    --brand-error: 0 84% 60%;
+    
+    /* UI Element Colors */
+    --card: 220 18% 12%;
+    --card-foreground: 220 15% 95%;
+    --card-border: 220 15% 20%;
+    
+    --popover: 220 18% 12%;
+    --popover-foreground: 220 15% 95%;
+    
+    --primary: 210 100% 56%;
+    --primary-foreground: 220 25% 6%;
+    
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 220 15% 95%;
+    
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 65%;
+    
+    --accent: 142 76% 36%;
+    --accent-foreground: 220 25% 6%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 15% 95%;
+    
+    --border: 220 15% 20%;
+    --input: 220 18% 12%;
+    --ring: 210 100% 56%;
+    
+    /* Advanced Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-accent)) 50%, hsl(var(--brand-secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--surface)) 0%, hsl(var(--surface-elevated)) 100%);
+    --gradient-glass: linear-gradient(145deg, hsla(var(--foreground), 0.05) 0%, hsla(var(--foreground), 0.1) 100%);
+    
+    /* Shadows */
+    --shadow-brand: 0 20px 60px -10px hsla(var(--brand-primary), 0.3);
+    --shadow-glow: 0 0 40px hsla(var(--brand-primary), 0.2);
+    --shadow-card: 0 10px 30px -5px hsla(0, 0%, 0%, 0.3);
+    --shadow-elevated: 0 25px 50px -12px hsla(0, 0%, 0%, 0.4);
+    
+    /* Typography */
+    --font-heading: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.15s ease-out;
+    
+    /* Layout */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* Sidebar */
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary-foreground: 220 25% 6%;
+    --sidebar-accent: 220 15% 20%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 210 100% 56%;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  
+  /* Light mode overrides (optional) */
+  .light {
+    --background: 220 15% 98%;
+    --foreground: 220 25% 10%;
+    --surface: 220 15% 96%;
+    --surface-elevated: 220 10% 94%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+    --border: 220 10% 88%;
+    --input: 220 10% 90%;
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 8% 45%;
+    --secondary: 220 10% 92%;
+    --secondary-foreground: 220 25% 10%;
   }
 }
 
@@ -100,6 +111,115 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--brand-primary));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--brand-secondary));
+  }
+}
+
+@layer components {
+  /* Utility Classes */
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(10px);
+  }
+  
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--shadow-glow); }
+    50% { box-shadow: 0 0 60px hsla(var(--brand-primary), 0.4); }
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
   }
 }
